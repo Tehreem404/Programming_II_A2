@@ -1,21 +1,25 @@
 # Programming_II_A2
 
 [AUTHOR]
+
     Name: Tehreem Nazar
     Student Number: 1108993
 
 [DESCRIPTION]
+
     This program will complete a set of tasks
         1. Swapping rows and columns
         2. Pointer, Shallow and Deep Copy (see below explanations)
 
 
 [USAGE]
+
     Example compile: gcc -ansi -o <filename> <filename.c>
     Example make: make <filename>
     Example execute: ./<filename>
 
 [FILENAMES]
+
     a2_q1.c
     a2_q1.h
     Double_Array.h
@@ -32,17 +36,20 @@
     print_struct.c
 
 [Q1a]
+
     This is the faster approach to the problem because instead of going through
     each column and each row and swapping their variables, we can swap the rows easily
     by swapping their pointer locations. The pointer location of the rows are recieved with
     array[a] and array[b], both of which is swapped using a double pointer buffer (temp).
 
 [Q1b]
+
     The faster approach cannot be applied here because you cant define a column by a single pointer.
     In memory, columns are not stored as arrays (the way rows are). Because rows are stored as arrays,
     they are defined by a pointer.
     
 [Q2b]
+
     a1 and a2 are linked by having the same structure address, which means altering either of the 
     array values will change for both a1 and a2. a_shallow's array will change along with a1 and
     a2 because indexing the array will dereference it to point at the value of array[a][b] in a1/a2
@@ -51,12 +58,14 @@
     assigned memory location that is different from a1, a2 and a_shallow
 
 [Q2c]
+
     a1 and a2 are linked through the structure address so when a2 array is equal to b1 array, the  
     array pointer of a2 will be equal to array pointer of b1, however, since a1 and a2 point to the
     same structure, a1's array pointer will also change. In the end, a1, a2 and b1 will point to the 
     same array, leaving a_shallow and a_deep pointing to their own arrays.
 
 [Q2d]
+
     * a1 trivially needs to be freed as it uses malloc
     * a2 does not need freeing since it is pointing at the same struct as a1 which has already been freed
     * a_shallow needs to be freed entirely (both struct and array) only because of the line:
